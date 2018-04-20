@@ -63,7 +63,7 @@ while valendo :
    elif escolha == 4:
         print(estoque)
         
-   else:
+   else: 
       print ('Comando Inválido')     
      
      
