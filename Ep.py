@@ -5,7 +5,6 @@ programa para o EP
 @author: vitoria
 """
 import json
-from pprint import pprint
 
 with open ('Arquivo.txt','r') as arquivo:
     conteudo = arquivo.read()
@@ -44,3 +43,10 @@ if x == 3:
      quant2 = float(input('Quantidade: '))
      estoque[produto] = quant2+quant
      print('Novo estoque de {0}:{1}'.format(produto, quant))
+     
+     
+     
+with open ('Arquivo.txt','a') as arquivo:
+    conteudo = arquivo.write()
+    original = json.dumps(conteudo)
+    print(original)
