@@ -4,7 +4,13 @@ Created on Fri Apr 20 07:44:23 2018
 programa para o EP
 @author: vitoria
 """
-estoque = {}
+import json
+
+with open ('Arquivo.txt','r') as arquivo:
+    conteudo = arquivo.read()
+    estoque = json.loads(conteudo)
+
+
 print('Controle de estoque')
 print('0 - sair')
 print('1 - adicionar item')
@@ -37,3 +43,10 @@ elif x == 3:
      quant2 = float(input('Quantidade: '))
      estoque[produto] = quant2+quant
      print('Novo estoque de {0}:{1}'.format(produto, quant))
+     
+     
+     
+with open ('Arquivo.txt','a') as arquivo:
+    conteudo = arquivo.write()
+    original = json.dumps(conteudo)
+    print(original)
