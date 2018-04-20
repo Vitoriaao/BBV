@@ -46,6 +46,12 @@ while valendo :
                 print('Quantidade inicial nao pode ser negativa.')
                 float(input('Quantidade inicial: '))
                 estoque[produto]=[quant]
+        print('Controle de estoque')
+        print('0 - sair')
+        print('1 - adicionar item')
+        print('2 - remover item')
+        print('3 - alterar item')
+        print('4 - Imprimir estoque')        
         escolha = int(input('Faça sua escolha: '))
         
         
@@ -56,6 +62,12 @@ while valendo :
             
         else:
             print('Elemento não encontrado')
+        print('Controle de estoque')
+        print('0 - sair')
+        print('1 - adicionar item')
+        print('2 - remover item')
+        print('3 - alterar item')
+        print('4 - Imprimir estoque')
         escolha = int(input('Faça sua escolha: '))
         
    elif escolha == 3:
@@ -63,6 +75,14 @@ while valendo :
         quant2 = float(input('Quantidade: '))
         estoque[produto] = quant2+quant
         print('Novo estoque de {0}:{1}'.format(produto, quant))
+        
+        print('Controle de estoque')
+        print('0 - sair')
+        print('1 - adicionar item')
+        print('2 - remover item')
+        print('3 - alterar item')
+        print('4 - Imprimir estoque')
+        escolha = int(input('Faça sua escolha: '))
      
    elif escolha == 4:
         print(estoque)
