@@ -39,7 +39,6 @@ escolha = int(input('Faça sua escolha: '))
 
 valendo = True
 
-
 while valendo:
     
     print('Controle de estoque')
@@ -61,7 +60,10 @@ while valendo:
             print('Produto já cadastrado.')
         else:
             quant = float(input('Quantidade inicial: '))
+<<<<<<< HEAD
             #precisa adicionar o produto no estoque
+=======
+>>>>>>> 6f88a908f1fc9559cac8cd79bd267032b709e7c6
             if quant < 0:
                 print('Quantidade inicial não pode ser negativa.')
                 quant = float(input('Quantidade inicial: '))
@@ -109,7 +111,7 @@ while valendo:
         if produto in estoque:
             quant2 = float(input('Quantidade: '))
             estoque[produto] += quant2
-            print('Novo estoque de {0}:{1}'.format(produto, estoque[produto]))
+            print('Novo estoque de {0}: {1}'.format(produto, estoque[produto]))
         else:
             print('Elemento não encontrado')
         
@@ -120,7 +122,7 @@ while valendo:
         print('2 - Remover item')
         print('3 - Alterar item')
         print('4 - Imprimir estoque')
-        escolha = int(input('Faça sua escolha:'))
+        escolha = int(input('Faça sua escolha: '))
         
 <<<<<<< HEAD
    elif escolha == 4:
@@ -137,7 +139,7 @@ while valendo:
         print('2 - Remover item')
         print('3 - Alterar item')
         print('4 - Imprimir estoque')
-        escolha = int(input('Faça sua escolha:'))
+        escolha = int(input('Faça sua escolha: '))
         
     else: 
        print ('Comando Inválido') 
@@ -158,8 +160,12 @@ while valendo:
        print('2 - Remover item')
        print('3 - Alterar item')
        print('4 - Imprimir estoque')
+<<<<<<< HEAD
        escolha = int(input('Faça sua escolha:'))
 >>>>>>> 88b566224734c54dff65313626885caada03a597
+=======
+       escolha = int(input('Faça sua escolha: '))
+>>>>>>> 6f88a908f1fc9559cac8cd79bd267032b709e7c6
      
 with open ('Arquivo.txt','w') as arquivo:
    conteudo = json.dumps(estoque)
