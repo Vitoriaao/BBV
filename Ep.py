@@ -6,7 +6,6 @@ programa para o EP
 """
 
 import json
-from pprint import pprint
 
 with open ('Arquivo.txt','r') as arquivo:
     conteudo = arquivo.read()
@@ -32,18 +31,17 @@ while valendo:
     
     elif escolha == 1:
         produto = input('Nome do produto: ')
-        estoque[produto] = produto
         
         if produto in estoque:
             print('Produto já cadastrado.')
         else:
+            estoque[produto] = {}
             preco = 0.0
-            
             while preco <= 0:
                  preco = float(input('Qual o valor do produto? '))
                  if preco <= 0:
                      print('O preço deve ser positivo')
-                 estoque[produto]['preco'] = preco    
+            estoque[produto]['preco'] = preco    
                  
             quant = float(input('Quantidade inicial: '))
             if quant < 0:
@@ -64,7 +62,6 @@ while valendo:
                     print('Quantidade inicial inválida.')
    
         
-        
     elif escolha == 2:
         delpro = input('Nome do produto: ')
         if delpro in estoque:
@@ -73,35 +70,29 @@ while valendo:
             print('Elemento não encontrado')
             
 
-        
     elif escolha == 3:
         produto = input('Nome do produto: ')
         if produto in estoque:
             quant2 = float(input('Quantidade adicionada: '))
-            estoque[produto]['quant'] += quant2
-            pergunta = input('Vai alterar o preco? (sim / nao)')
-            if pergunta == 'sim':
+            estoque[produto]['quantidade'] += quant2
+            pergunta = input('Vai alterar o preco?(s/n) ')
+            if pergunta == 's':
                 preco2 = float(input('Qual o novo preco? '))
                 while preco2 <= 0:
                     print('Não pode ser negativo')
                     preco2 = float(input('Qual o novo preco? '))
-                    estoque[produto]['preco'] = preco2        
-            
-            print('Novo estoque de {0}: {1}, {2}'.format(produto, estoque[produto]['quant'], estoque[produto]['preco'] ))
+                estoque[produto]['preco'] = preco2         
+            print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
         else:
             print('Elemento não encontrado')
-        
- 
-        
+            
         
     elif escolha == 4:
         print('Estoque:{0}'.format(estoque))
 
- 
-        
-    else: 
-       print ('Comando Inválido') 
 
+    else: 
+       print ('Comando Inválido.') 
 
 
 with open ('Arquivo.txt','w') as arquivo:
