@@ -4,7 +4,13 @@ Created on Fri Apr 20 07:44:23 2018
 programa para o EP
 @author: vitoria
 """
+<<<<<<< HEAD
+<<<<<<< HEAD
+estoque = {}
+=======
+=======
 
+>>>>>>> 11cf69066bd47ebd72c2fa001849b3b5f73c1806
 import json
 from pprint import pprint
 
