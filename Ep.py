@@ -14,16 +14,6 @@ from pprint import pprint
 estoque = {}
 
 <<<<<<< HEAD
-#import json
-#from pprint import pprint
-#
-#with open ('Arquivo.txt','r') as arquivo:
-#    conteudo = arquivo.read()
-#    estoque = json.loads(conteudo)
-#
-#with open ('Arquivo.txt','a') as arquivo:
-#    conteudo = arquivo.write('')
-#    estoque = json.dumps(conteudo) 
 
 
 print('Controle de estoque')
