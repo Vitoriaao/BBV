@@ -73,16 +73,27 @@ while valendo:
     elif escolha == 3:
         produto = input('Nome do produto: ')
         if produto in estoque:
-            quant2 = float(input('Quantidade adicionada: '))
-            estoque[produto]['quantidade'] += quant2
-            pergunta = input('Vai alterar o preco?(s/n) ')
-            if pergunta == 's':
-                preco2 = float(input('Qual o novo preco? '))
-                while preco2 <= 0:
-                    print('Não pode ser negativo')
+            pergunta1 = input('Alterar quantidade?(s/n) ')
+            if pergunta1 == 's':
+                quant2 = float(input('Quantidade adicionada: '))
+                estoque[produto]['quantidade'] += quant2
+                pergunta2 = input('Alterar o preco?(s/n) ')
+                if pergunta2 == 's':
                     preco2 = float(input('Qual o novo preco? '))
-                estoque[produto]['preco'] = preco2         
-            print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
+                    while preco2 <= 0:
+                        print('Não pode ser negativo')
+                        preco2 = float(input('Qual o novo preco? '))
+                    estoque[produto]['preco'] = preco2        
+                print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
+            else:
+                pergunta2 = input('Alterar preco?(s/n) ')
+                if pergunta2 == 's':
+                    preco2 = float(input('Qual o novo preco? '))
+                    while preco2 <= 0:
+                        print('Não pode ser negativo')
+                        preco2 = float(input('Qual o novo preco? '))
+                    estoque[produto]['preco'] = preco2         
+                print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
         else:
             print('Elemento não encontrado')
             
