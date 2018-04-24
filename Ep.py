@@ -4,23 +4,19 @@ Created on Fri Apr 20 07:44:23 2018
 programa para o EP
 @author: vitoria
 """
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 estoque = {}
-=======
-=======
 
->>>>>>> 11cf69066bd47ebd72c2fa001849b3b5f73c1806
-import json
-from pprint import pprint
-
-with open ('Arquivo.txt','r') as arquivo:
-    conteudo = arquivo.read()
-    estoque = json.loads(conteudo)
-
-with open ('Arquivo.txt','a') as arquivo:
-    conteudo = arquivo.write('')
-    estoque = json.dumps(conteudo) 
+#import json
+#from pprint import pprint
+#
+#with open ('Arquivo.txt','r') as arquivo:
+#    conteudo = arquivo.read()
+#    estoque = json.loads(conteudo)
+#
+#with open ('Arquivo.txt','a') as arquivo:
+#    conteudo = arquivo.write('')
+#    estoque = json.dumps(conteudo) 
 
 
 print('Controle de estoque')
@@ -47,7 +43,7 @@ while valendo:
         if produto in estoque:
             print('Produto já cadastrado.')
         else:
-            quant = float(input('Quantidade inicial:'))
+            quant = float(input('Quantidade inicial: '))
             #precisa adicionar o produto no estoque
             if quant < 0:
                 print('Quantidade inicial não pode ser negativa.')
@@ -65,7 +61,7 @@ while valendo:
                     estoque[produto]=quant
                 else:
                     print('Quantidade inicial inválida.')
-                
+        print('')        
         print('Controle de estoque')
         print('0 - Sair')
         print('1 - Adicionar item')
@@ -82,6 +78,7 @@ while valendo:
         else:
             print('Elemento não encontrado')
             
+        print('')    
         print('Controle de estoque')
         print('0 - Sair')
         print('1 - Adicionar item')
@@ -99,6 +96,7 @@ while valendo:
         else:
             print('Elemento não encontrado')
         
+        print('')
         print('Controle de estoque')
         print('0 - Sair')
         print('1 - Adicionar item')
@@ -108,8 +106,9 @@ while valendo:
         escolha = int(input('Faça sua escolha:'))
         
    elif escolha == 4:
-        pprint('Estoque:{0}'.format(estoque))
+        print('Estoque:{0}'.format(estoque))
         
+        print('')
         print('Controle de estoque')
         print('0 - Sair')
         print('1 - Adicionar item')
@@ -121,6 +120,7 @@ while valendo:
    else: 
       print ('Comando Inválido') 
       
+      print('')
       print('Controle de estoque')
       print('0 - Sair')
       print('1 - Adicionar item')
