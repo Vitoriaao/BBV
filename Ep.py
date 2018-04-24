@@ -5,7 +5,7 @@ programa para o EP
 @author: vitoria
 """
 <<<<<<< HEAD
-estoque = {'banana'}
+estoque = {}
 =======
 import json
 
