@@ -84,7 +84,7 @@ while valendo:
         print('4 - Imprimir estoque')
         escolha = int(input('Faça sua escolha: '))
         
-   elif escolha == 3: #não está somando a nova quantidade no estoque
+   elif escolha == 3:
         produto = input('Nome do produto: ')
         if produto in estoque:
             quant2 = float(input('Quantidade: '))
