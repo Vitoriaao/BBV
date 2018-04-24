@@ -12,6 +12,9 @@ with open ('Arquivo.txt','r') as arquivo:
     conteudo = arquivo.read()
     estoque = json.loads(conteudo)
 
+with open ('Arquivo.txt','a') as arquivo:
+    conteudo = arquivo.write('')
+    estoque = json.dumps(conteudo) 
 
 
 print('Controle de estoque')
@@ -36,16 +39,26 @@ while valendo:
         produto = input('Nome do produto: ')
         
         if produto in estoque:
-            print('Produto já está cadastrado.')
+            print('Produto já cadastrado.')
         else:
-            quant = float(input('Qual a quantidade:'))
+            quant = float(input('Quantidade inicial:'))
             #precisa adicionar o produto no estoque
             if quant < 0:
-                print('Quantidade inicial nao pode ser negativa.')
-                float(input('Quantidade inicial: '))
-                estoque[produto]=quant
+                print('Quantidade inicial não pode ser negativa.')
+                quant = float(input('Quantidade inicial: '))
+                if quant > 0:
+                    estoque[produto]=quant
+                else:
+                    print('Quantidade inicial inválida.')
             elif quant > 0:
                 estoque[produto]=quant
+            else:
+                print('Quantidade inicial não pode ser nula.')
+                quant = float(input('Quantidade inicial: '))
+                if quant > 0:
+                    estoque[produto]=quant
+                else:
+                    print('Quantidade inicial inválida.')
                 
         print('Controle de estoque')
         print('0 - Sair')
@@ -75,7 +88,7 @@ while valendo:
         produto = input('Nome do produto: ')
         if produto in estoque:
             quant2 = float(input('Quantidade: '))
-            estoque[produto] = quant2+quant
+            estoque[produto] += quant2
             print('Novo estoque de {0}:{1}'.format(produto, estoque[produto]))
         else:
             print('Elemento não encontrado')
@@ -111,6 +124,5 @@ while valendo:
       escolha = int(input('Faça sua escolha:'))
      
  
-with open ('Arquivo.txt','a') as arquivo:
-    conteudo = arquivo.write('')
-    estoque = json.dumps(conteudo)    
+
+   
