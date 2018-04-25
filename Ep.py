@@ -99,6 +99,7 @@ while entra:
                     pergunta2 = input('Alterar preco?(s/n) ')
                     if pergunta2 == 's':
                         preco2 = float(input('Qual o novo preco? '))
+<<<<<<< HEAD
                         while preco2 <= 0:
                             print('Não pode ser negativo')
                             preco2 = float(input('Qual o novo preco? '))
@@ -110,6 +111,29 @@ while entra:
                 
         elif escolha == 4:
             print('Estoque:{0}'.format(estoque))
+=======
+                    estoque[produto]['preco'] = preco2         
+                print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
+        else:
+            print('Elemento não encontrado')
+
+            
+    elif escolha == 4:
+        for produto in estoque:
+            print('{0} - Quantidade:{1}, Preço: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
+
+    else: 
+       print ('Comando Inválido.') 
+
+
+with open ('Arquivo.txt','w') as arquivo:
+   conteudo = json.dumps(estoque)
+   arquivo.write(conteudo) 
+   
+
+for produto in estoque:
+    estoque_negativo = []
+>>>>>>> 1d23a7f2a5a301eeded54a1ff55fa080aab3b0ba
     
         else: 
            print ('Comando Inválido.') 
