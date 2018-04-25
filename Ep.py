@@ -117,7 +117,9 @@ for produto in estoque:
     if estoque[produto]['quantidade'] < 0:
         estoque_negativo.append(produto)
     valor_monetario = 0.0
-    valor_monetario += estoque[produto]['preco']
+    valor_monetario += estoque[produto]['preco']*estoque[produto]['quantidade']
+    
+    
 print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
 print ('Valor monetário total em estoque: {0}'.format(valor_monetario))
 
