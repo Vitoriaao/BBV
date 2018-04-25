@@ -13,6 +13,8 @@ with open ('Arquivo.txt','r') as arquivo:
     estoque = json.loads(conteudo)
 
 
+estoque = {'produto': {'quantidade': 0.0, 'preco':0.0}}
+
 valendo = True
 
 while valendo:
@@ -32,7 +34,7 @@ while valendo:
     
     elif escolha == 1:
         produto = input('Nome do produto: ')
-        estoque[produto] = produto
+        
         
         if produto in estoque:
             print('Produto já cadastrado.')
@@ -43,26 +45,26 @@ while valendo:
                  preco = float(input('Qual o valor do produto? '))
                  if preco <= 0:
                      print('O preço deve ser positivo')
-                 estoque[produto]['preco'] = preco    
+                 estoque['produto']['preco'] = preco    
                  
             quant = float(input('Quantidade inicial: '))
             if quant < 0:
                 print('Quantidade inicial não pode ser negativa.')
                 quant = float(input('Quantidade inicial: '))
                 if quant > 0:
-                    estoque[produto]['quantidade']=quant
+                    estoque['produto']['quantidade']=quant
                 else:
                     print('Quantidade inicial inválida.')
             elif quant > 0:
-                estoque[produto]['quantidade']=quant
+                estoque['produto']['quantidade']=quant
             else:
                 print('Quantidade inicial não pode ser nula.')
                 quant = float(input('Quantidade inicial: '))
                 if quant > 0:
-                    estoque[produto]['quantidade']=quant
+                    estoque['produto']['quantidade']=quant
                 else:
                     print('Quantidade inicial inválida.')
-   
+        estoque['produto'] = produto
         
         
     elif escolha == 2:
@@ -78,7 +80,7 @@ while valendo:
         produto = input('Nome do produto: ')
         if produto in estoque:
             quant2 = float(input('Quantidade adicionada: '))
-            estoque[produto]['quant'] += quant2
+            estoque[produto]['quantidade'] += quant2
             pergunta = input('Vai alterar o preco? (sim / nao)')
             if pergunta == 'sim':
                 preco2 = float(input('Qual o novo preco? '))
@@ -87,7 +89,8 @@ while valendo:
                     preco2 = float(input('Qual o novo preco? '))
                     estoque[produto]['preco'] = preco2        
             
-            print('Novo estoque de {0}: {1}, {2}'.format(produto, estoque[produto]['quant'], estoque[produto]['preco'] ))
+            print('Novo estoque de {0}: {1}, {2}'.format(produto, \
+                  estoque['produto']['quantidade'], estoque['produto']['preco'] ))
         else:
             print('Elemento não encontrado')
         
@@ -95,7 +98,8 @@ while valendo:
         
         
     elif escolha == 4:
-        print('Estoque:{0}'.format(estoque))
+        print (estoque['produto'], estoque['produto']['quantidade'], estoque['produto']['preco'])
+       
 
  
         
