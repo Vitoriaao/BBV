@@ -86,12 +86,8 @@ while valendo:
                         preco2 = float(input('Qual o novo preco? '))
                     estoque[produto]['preco'] = preco2    
                 print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
-<<<<<<< HEAD
-            elif pergunta1 == 'n':
-=======
                 
             else:
->>>>>>> be6f69c0ff95d684e04b0582f8377b92d06b6abe
                 pergunta2 = input('Alterar preco?(s/n) ')
                 if pergunta2 == 's':
                     preco2 = float(input('Qual o novo preco? '))
@@ -110,10 +106,6 @@ while valendo:
     else: 
        print ('Comando Inválido.') 
 
-valor_monetario = 0.0
-for produto in estoque:
-    valor_monetario += estoque[produto]['preco']
-print (valor_monetario)
 
 with open ('Arquivo.txt','w') as arquivo:
    conteudo = json.dumps(estoque)
@@ -124,4 +116,8 @@ for produto in estoque:
     estoque_negativo = []
     if estoque[produto]['quantidade'] < 0:
         estoque_negativo.append(produto)
-print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))
+    valor_monetario = 0.0
+    valor_monetario += estoque[produto]['preco']
+print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
+print ('Valor monetário total em estoque: {0}'.format(valor_monetario))
+
