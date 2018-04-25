@@ -78,6 +78,7 @@ while valendo:
                 quant2 = float(input('Quantidade adicionada: '))
                 estoque[produto]['quantidade'] += quant2
                 pergunta2 = input('Alterar o preco?(s/n) ')
+                
                 if pergunta2 == 's':
                     preco2 = float(input('Qual o novo preco? '))
                     while preco2 <= 0:
@@ -85,6 +86,7 @@ while valendo:
                         preco2 = float(input('Qual o novo preco? '))
                     estoque[produto]['preco'] = preco2        
                 print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
+                
             else:
                 pergunta2 = input('Alterar preco?(s/n) ')
                 if pergunta2 == 's':
@@ -104,6 +106,10 @@ while valendo:
     else: 
        print ('Comando Inválido.') 
 
+valor_monetario = 0.0
+for produto in estoque:
+    valor_monetario += estoque[produto]['preco']
+print (valor_monetario)
 
 with open ('Arquivo.txt','w') as arquivo:
    conteudo = json.dumps(estoque)
