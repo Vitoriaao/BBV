@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {}
+=======
+{"fudeu": {"preco": 9.0, "quantidade": -20.0}, "bia": {"preco": 5.0, "quantidade": 1.0}, "vitoria": {"preco": 100.0, "quantidade": 1.0}}
+>>>>>>> 641970f4632d0b69e7b4def2ff0c822ea1215cdb
