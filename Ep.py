@@ -102,7 +102,8 @@ while valendo:
 
             
     elif escolha == 4:
-        print('Estoque:{0}'.format(estoque))
+        for produto in estoque:
+            print('{0} - Quantidade:{1}, Preço: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
 
     else: 
        print ('Comando Inválido.') 
