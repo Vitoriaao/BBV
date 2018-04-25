@@ -1,1 +1,1 @@
-{"oi": {"preco": 9.0, "quantidade": 8.0}}
+{}

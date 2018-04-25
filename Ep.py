@@ -83,9 +83,9 @@ while valendo:
                     while preco2 <= 0:
                         print('Não pode ser negativo')
                         preco2 = float(input('Qual o novo preco? '))
-                    estoque[produto]['preco'] = preco2        
+                    estoque[produto]['preco'] = preco2    
                 print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[produto]['quantidade'], estoque[produto]['preco'] ))
-            else:
+            elif pergunta1 == 'n':
                 pergunta2 = input('Alterar preco?(s/n) ')
                 if pergunta2 == 's':
                     preco2 = float(input('Qual o novo preco? '))
@@ -109,4 +109,9 @@ with open ('Arquivo.txt','w') as arquivo:
    conteudo = json.dumps(estoque)
    arquivo.write(conteudo) 
    
-   
+
+for produto in estoque:
+    estoque_negativo = []
+    if estoque[produto]['quantidade'] < 0:
+        estoque_negativo.append(produto)
+print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))
