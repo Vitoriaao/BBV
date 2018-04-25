@@ -16,6 +16,7 @@ valendo = True
 
 while valendo:
     
+    print('')
     print('Controle de estoque')
     print('0 - Sair')
     print('1 - Adicionar item')
@@ -114,12 +115,20 @@ with open ('Arquivo.txt','w') as arquivo:
 
 for produto in estoque:
     estoque_negativo = []
+    
     if estoque[produto]['quantidade'] < 0:
         estoque_negativo.append(produto)
-    valor_monetario = 0.0
-    valor_monetario += estoque[produto]['preco']*estoque[produto]['quantidade']
-    
+        
+        total = 0
+        if len(estoque) == 0:
+            print('Nâo existem produtos em estoque')
+        else:
+            for produto in estoque:
+                preco = estoque[produto]['preco']
+                quantidade = estoque[produto]['quantidade']
+                total += preco*quantidade 
+            
     
 print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
-print ('Valor monetário total em estoque: {0}'.format(valor_monetario))
+print ('Valor monetário total em estoque: {0}'.format(total))
 
