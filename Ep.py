@@ -79,7 +79,6 @@ while entra:
             elif  escolha_loja == 3:
                 loja = input('Nome da loja: ')
                 if loja in estoque:
-                    loja = estoque[loja]
                     valendo = True
                 else:
                     print('Comando inválido.')
@@ -185,13 +184,13 @@ while entra:
                                 
                          total = 0
                          if len(estoque) == 0:
-                             print('Nâo existem produtos em estoque')
+                             print('Não existem produtos em estoque.')
                          else:
                              for produto in estoque[loja]:
                                     preco = estoque[loja][produto]['preco']
                                     quantidade = estoque[loja][produto]['quantidade']
                                     total += preco*quantidade 
-                    print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
+                    print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))
                     print ('Valor monetário total em estoque: {0}'.format(total))                
                 else:
                     print('Comando inválido')
