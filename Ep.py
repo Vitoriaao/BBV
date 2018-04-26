@@ -50,13 +50,13 @@ class Estoque:
                 escolha = int(input('Faça sua escolha: '))
                 
             
-                if escolha == 0:
+                if escolha == 0:  #sair
                    print('Até mais')
                    valendo = False
                    entra = False
                    break
                 
-                elif escolha == 1:
+                elif escolha == 1:  #adicionar item
                     produto = input('Nome do produto: ')
                     
                     if produto in estoque[loja]:
@@ -89,7 +89,7 @@ class Estoque:
                                 print('Quantidade inicial inválida.')
                
                     
-                elif escolha == 2:
+                elif escolha == 2: #remover item
                     delpro = input('Nome do produto: ')
                     if delpro in estoque[loja]:
                         del estoque[loja][delpro]
@@ -97,7 +97,7 @@ class Estoque:
                         print('Elemento não encontrado')
                         
             
-                elif escolha == 3:
+                elif escolha == 3: #alterar item
                     produto = input('Nome do produto: ')
                     if produto in estoque[loja]:
                         pergunta1 = input('Alterar quantidade?(s/n) ')
@@ -127,7 +127,7 @@ class Estoque:
                     else:
                         print('Elemento não encontrado')
             
-                elif escolha == 4:
+                elif escolha == 4: #imprimir estoque
                     for produto in estoque[loja]:
                         print('{0} - Quantidade:{1}, Preço: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))        
                     for produto in estoque[loja]:
