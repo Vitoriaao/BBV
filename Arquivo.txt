@@ -1,9 +1,1 @@
-<<<<<<< HEAD
 {}
-=======
-<<<<<<< HEAD
-{}
-=======
-{"americanas": {}, "coco": {"fruta": {"preco": 15.0, "quantidade": 2}, "banana": {"preco": 3.0, "quantidade": -1}}, "Frutaria": {"uva": {"preco": 5.0, "quantidade": 8}, "mamao": {"preco": 10.0, "quantidade": -9}}}
->>>>>>> 61680938962e0bb84ff77414e772e45e1eb7fbb7
->>>>>>> 5de5ef3c0b60a950193c9a5cb618e91e5c1a1a4b
