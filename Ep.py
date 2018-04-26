@@ -5,7 +5,7 @@ programa para o EP
 @author: vitoria
 """
 
-
+import tkinter as tk
 import json
 
 with open ('Arquivo.txt','r') as arquivo:
@@ -13,136 +13,145 @@ with open ('Arquivo.txt','r') as arquivo:
     estoque = json.loads(conteudo)
 
 
-valendo = True
-
-entra = True
-loja = input('Qual a loja?:')
-estoque[loja] = {}
-
-print('Você acessou o estoque da loja {0}'.format(loja))
-
-while entra:
-
-    while valendo:
+class Estoque:
+    def __init__(self):
+        self.window = tk.Tk()
         
-        print('')
-        print('Controle de estoque')
-        print('0 - Sair')
-        print('1 - Adicionar item')
-        print('2 - Remover item')
-        print('3 - Alterar item')
-        print('4 - Imprimir estoque')
-        escolha = int(input('Faça sua escolha: '))
+        self.botao =tk.Button(self.window)
+        self.botao.configure(text = 'Clique aqui para acessar o Sistema de Gerenciamento de Estoques')
+        self.botao.configure(command = self.acessar_estoque)
+        self.botao.grid()
+
+
+    def iniciar(self):
+        self.window.mainloop()
         
-    
-        if escolha == 0:
-           print('Até mais')
-           valendo = False
-           entra = False
-           break
+    def acessar_estoque(self):
+
+        valendo = True
         
-        elif escolha == 1:
-            produto = input('Nome do produto: ')
-            
-            if produto in estoque[loja]:
-                print('Produto já cadastrado.')
-            else:
-                estoque[loja][produto] = {}
-                preco = 0.0
-                while preco <= 0:
-                     preco = float(input('Qual o valor do produto? '))
-                     if preco <= 0:
-                         print('O preço deve ser positivo')
-                estoque[loja][produto]['preco'] = preco    
-                     
-                quant = int(input('Quantidade inicial: '))
-                if quant < 0:
-                    print('Quantidade inicial não pode ser negativa.')
-                    quant = int(input('Quantidade inicial: '))
-                    if quant > 0:
-                        estoque[loja][produto]['quantidade']=quant
-                    else:
-                        print('Quantidade inicial inválida.')
-                elif quant > 0:
-                    estoque[loja][produto]['quantidade']=quant
-                else:
-                    print('Quantidade inicial não pode ser nula.')
-                    quant = int(input('Quantidade inicial: '))
-                    if quant > 0:
-                        estoque[loja][produto]['quantidade']=quant
-                    else:
-                        print('Quantidade inicial inválida.')
-       
-            
-        elif escolha == 2:
-            delpro = input('Nome do produto: ')
-            if delpro in estoque[loja]:
-                del estoque[loja][delpro]
-            else:
-                print('Elemento não encontrado')
+        entra = True
+        loja = input('Qual a loja?:')
+        estoque[loja] = {}
+        
+        print('Você acessou o estoque da loja {0}'.format(loja))
+        
+        while entra:
+        
+            while valendo:
                 
-    
-        elif escolha == 3:
-            produto = input('Nome do produto: ')
-            if produto in estoque[loja]:
-                pergunta1 = input('Alterar quantidade?(s/n) ')
-                if pergunta1 == 's':
-                    quant2 = int(input('Quantidade adicionada: '))
-                    estoque[loja][produto]['quantidade'] += quant2
-                    pergunta2 = input('Alterar o preco?(s/n) ')
+                print('')
+                print('Controle de estoque')
+                print('0 - Sair')
+                print('1 - Adicionar item')
+                print('2 - Remover item')
+                print('3 - Alterar item')
+                print('4 - Imprimir estoque')
+                escolha = int(input('Faça sua escolha: '))
+                
+            
+                if escolha == 0:
+                   print('Até mais')
+                   valendo = False
+                   entra = False
+                   break
+                
+                elif escolha == 1:
+                    produto = input('Nome do produto: ')
                     
-                    if pergunta2 == 's':
-                        preco2 = float(input('Qual o novo preco? '))
-                        while preco2 <= 0:
-                            print('Não pode ser negativo')
-                            preco2 = float(input('Qual o novo preco? '))
-                        estoque[loja][produto]['preco'] = preco2    
-                    print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))
+                    if produto in estoque[loja]:
+                        print('Produto já cadastrado.')
+                    else:
+                        estoque[loja][produto] = {}
+                        preco = 0.0
+                        while preco <= 0:
+                             preco = float(input('Qual o valor do produto? '))
+                             if preco <= 0:
+                                 print('O preço deve ser positivo')
+                        estoque[loja][produto]['preco'] = preco    
+                             
+                        quant = int(input('Quantidade inicial: '))
+                        if quant < 0:
+                            print('Quantidade inicial não pode ser negativa.')
+                            quant = int(input('Quantidade inicial: '))
+                            if quant > 0:
+                                estoque[loja][produto]['quantidade']=quant
+                            else:
+                                print('Quantidade inicial inválida.')
+                        elif quant > 0:
+                            estoque[loja][produto]['quantidade']=quant
+                        else:
+                            print('Quantidade inicial não pode ser nula.')
+                            quant = int(input('Quantidade inicial: '))
+                            if quant > 0:
+                                estoque[loja][produto]['quantidade']=quant
+                            else:
+                                print('Quantidade inicial inválida.')
+               
                     
+                elif escolha == 2:
+                    delpro = input('Nome do produto: ')
+                    if delpro in estoque[loja]:
+                        del estoque[loja][delpro]
+                    else:
+                        print('Elemento não encontrado')
+                        
+            
+                elif escolha == 3:
+                    produto = input('Nome do produto: ')
+                    if produto in estoque[loja]:
+                        pergunta1 = input('Alterar quantidade?(s/n) ')
+                        if pergunta1 == 's':
+                            quant2 = int(input('Quantidade adicionada: '))
+                            estoque[loja][produto]['quantidade'] += quant2
+                            pergunta2 = input('Alterar o preco?(s/n) ')
+                            
+                            if pergunta2 == 's':
+                                preco2 = float(input('Qual o novo preco? '))
+                                while preco2 <= 0:
+                                    print('Não pode ser negativo')
+                                    preco2 = float(input('Qual o novo preco? '))
+                                estoque[loja][produto]['preco'] = preco2    
+                            print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))
+                            
+                        else:
+                            pergunta2 = input('Alterar preco?(s/n) ')
+                            if pergunta2 == 's':
+                                preco2 = float(input('Qual o novo preco? '))
+                                
+                                while preco2 <= 0:
+                                    print('O preço nao pode ser menor que zero')
+                                    preco2 = float(input('Qual o novo preco? '))
+                                estoque[loja][produto]['preco'] = preco2         
+                            print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))
+                    else:
+                        print('Elemento não encontrado')
+            
+                elif escolha == 4:
+                    for produto in estoque[loja]:
+                        print('{0} - Quantidade:{1}, Preço: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))        
+                    for produto in estoque[loja]:
+                         estoque_negativo = []   
+                         if estoque[loja][produto]['quantidade'] < 0:
+                             estoque_negativo.append(produto)
+                                
+                         total = 0
+                         if len(estoque) == 0:
+                             print('Nâo existem produtos em estoque')
+                         else:
+                             for produto in estoque[loja]:
+                                    preco = estoque[loja][produto]['preco']
+                                    quantidade = estoque[loja][produto]['quantidade']
+                                    total += preco*quantidade 
+                    print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
+                    print ('Valor monetário total em estoque: {0}'.format(total))                
                 else:
-                    pergunta2 = input('Alterar preco?(s/n) ')
-                    if pergunta2 == 's':
-                        preco2 = float(input('Qual o novo preco? '))
-                        
-                        while preco2 <= 0:
-                            print('O preço nao pode ser menor que zero')
-                            preco2 = float(input('Qual o novo preco? '))
-                        estoque[loja][produto]['preco'] = preco2         
-                    print('Novo estoque de {0}: quantidade: {1}, preco: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))
-            else:
-                print('Elemento não encontrado')
-    
-        elif escolha == 4:
-            for produto in estoque[loja]:
-                print('{0} - Quantidade:{1}, Preço: {2}'.format(produto, estoque[loja][produto]['quantidade'], estoque[loja][produto]['preco'] ))        
-            for produto in estoque[loja]:
-                 estoque_negativo = []   
-                 if estoque[loja][produto]['quantidade'] < 0:
-                     estoque_negativo.append(produto)
-                        
-                 total = 0
-                 if len(estoque) == 0:
-                     print('Nâo existem produtos em estoque')
-                 else:
-                     for produto in estoque[loja]:
-                            preco = estoque[loja][produto]['preco']
-                            quantidade = estoque[loja][produto]['quantidade']
-                            total += preco*quantidade 
-            print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
-            print ('Valor monetário total em estoque: {0}'.format(total))                
-        else:
-            print('Comando inválido')
+                    print('Comando inválido')
 
-
+app = Estoque()
+app.iniciar()
 with open ('Arquivo.txt','w') as arquivo:
    conteudo = json.dumps(estoque)
-<<<<<<< HEAD
+
    arquivo.write(conteudo)
-=======
-   arquivo.write(conteudo) 
-   
 
-    
-
-    
->>>>>>> f53b7494295b5999245adc751d2fac8fd451e2d5
