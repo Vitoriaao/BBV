@@ -136,4 +136,13 @@ while entra:
 
 with open ('Arquivo.txt','w') as arquivo:
    conteudo = json.dumps(estoque)
+<<<<<<< HEAD
    arquivo.write(conteudo)
+=======
+   arquivo.write(conteudo) 
+   
+
+    
+
+    
+>>>>>>> f53b7494295b5999245adc751d2fac8fd451e2d5
