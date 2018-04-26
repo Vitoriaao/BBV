@@ -15,12 +15,48 @@ with open ('Arquivo.txt','r') as arquivo:
 valendo = True
 
 entra = True
-loja = input('Qual a loja?:')
-estoque[loja] = {}
-
-print('Você acessou o estoque da loja {0}'.format(loja))
 
 while entra:
+    
+#    loja = input('Qual a loja?:')
+#    estoque[loja] = {}
+    print('')
+    print('controle loja')
+    print('0 - Sair')
+    print('1 - Adicionar loja')
+    print('2 - Remover loja')
+    print('3 - Entrar no estoque de loja')
+    escolha_loja= int(input('Faça sua escolha: '))
+#    print('Você acessou o estoque da loja {0}'.format(loja))
+    if escolha_loja == 0:
+        print('Até mais')
+        entra = False
+        break
+    elif escolha_loja == 1:
+        loja = input('Nome da loja: ')
+        
+        if loja in estoque:
+            print('Loja já cadastrada')
+            entra = False
+        else:
+            estoque[loja] = {}
+    elif escolha_loja == 2:
+        deloja = input('Nome do loja: ')
+        if deloja in estoque[loja]:
+            del estoque[loja][deloja]
+            valendo = False
+        else:
+            print('Loja não encontrada.')
+            valendo = False
+    elif  escolha_loja == 3:
+        loja = input('Nome da loja: ')
+        if loja in estoque:
+            loja = estoque[loja]
+            valendo = True
+        else:
+            print('Comando inválido.')
+            valendo = False
+           
 
     while valendo:
         
@@ -117,7 +153,7 @@ while entra:
             for produto in estoque[loja]:
                  estoque_negativo = []   
                  if estoque[loja][produto]['quantidade'] < 0:
-                     estoque_negativo.append(produto)
+                     estoque_negativo.append(estoque[loja][produto])
                         
                  total = 0
                  if len(estoque) == 0:

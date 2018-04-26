@@ -1,1 +1,1 @@
-{"americanas": {}, "coco": {"fruta": {"preco": 15.0, "quantidade": 2}, "banana": {"preco": 3.0, "quantidade": -1}}}
+{}
