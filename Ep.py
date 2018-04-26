@@ -6,17 +6,21 @@ programa para o EP
 """
 
 import tkinter as tk
-import json
+from firebase import firebase
+firebase = firebase.FirebaseApplication('https://ep1-bbv.firebaseio.com/',None)
 
-with open ('Arquivo.txt','r') as arquivo:
-    conteudo = arquivo.read()
-    estoque = json.loads(conteudo)
+
+try :
+    estoque = firebase.get('/estoque', None)
+    estoque = estoque [0][0]
+except:
+    estoque= {'loja': {}}
+
 
 
 class Estoque:
     def __init__(self):
         self.window = tk.Tk()
-        
         self.botao =tk.Button(self.window)
         self.botao.configure(text = 'Clique aqui para acessar o Sistema de Gerenciamento de Estoques')
         self.botao.configure(command = self.acessar_estoque)
@@ -150,8 +154,7 @@ class Estoque:
 
 app = Estoque()
 app.iniciar()
-with open ('Arquivo.txt','w') as arquivo:
-   conteudo = json.dumps(estoque)
 
-   arquivo.write(conteudo)
 
+fbestoque = [estoque]
+firebase.put('/estoque', '0', fbestoque)
