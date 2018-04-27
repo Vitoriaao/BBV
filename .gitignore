@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+Ep.py
+*.py
+*.txt
+Arquivo.txt
+*.py
+Arquivo.txt

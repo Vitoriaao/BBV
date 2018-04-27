@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Apr 20 07:44:23 2018
-programa para o EP
-@author: vitoria
-"""
+Created on Thu Apr 26 23:01:54 2018
 
+@author: Beatriz
+"""
 #import json
 
 #with open ('Arquivo.txt','r') as arquivo:
@@ -26,7 +25,7 @@ except:
 #
 #
 #class Estoque:
-#    def _init_(self):
+#    def init(self):
 #        self.window = tk.Tk()
 #        
 #        self.botao =tk.Button(self.window)
@@ -79,7 +78,6 @@ while entra:
             elif  escolha_loja == 3:
                 loja = input('Nome da loja: ')
                 if loja in estoque:
-                    loja = estoque[loja]
                     valendo = True
                 else:
                     print('Comando inválido.')
@@ -181,17 +179,17 @@ while entra:
                     for produto in estoque[loja]:
                          estoque_negativo = []   
                          if estoque[loja][produto]['quantidade'] < 0:
-                             estoque_negativo.append(estoque[loja][produto])
+                             estoque_negativo.append(estoque[loja])
                                 
                          total = 0
                          if len(estoque) == 0:
-                             print('Nâo existem produtos em estoque')
+                             print('Não existem produtos em estoque.')
                          else:
                              for produto in estoque[loja]:
                                     preco = estoque[loja][produto]['preco']
                                     quantidade = estoque[loja][produto]['quantidade']
                                     total += preco*quantidade 
-                    print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))#não ta printando todos os produtos
+                    print ('Produtos com estoque negativo: {0}'.format(estoque_negativo))
                     print ('Valor monetário total em estoque: {0}'.format(total))                
                 else:
                     print('Comando inválido')
@@ -207,7 +205,3 @@ while entra:
 
 fbestoque = [estoque]
 firebase.put('/estoque', '0', fbestoque)
-
-    
-
-    
